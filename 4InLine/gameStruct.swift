@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 struct gameStructu{
     
     var gameBoard:[[gamePce]] = [[gamePce(),gamePce(),gamePce(),gamePce(),gamePce(),gamePce(),gamePce()],
@@ -27,6 +28,11 @@ struct gameStructu{
             if (gameBoard[i][row].valor == 0){
                 gameBoard[i][row].name = "circle\(row)"
                 gameBoard[i][row].valor = player
+                if (player == 1){
+                    gameBoard[i][row].color = .red
+                }else{
+                    gameBoard[i][row].color = .blue
+                }
                 
                 break
             }
@@ -34,11 +40,6 @@ struct gameStructu{
         
     }
     mutating func resetGame(){
-        /*
-         ForEach(0..<6) {i in
-             HStack( spacing: 3){
-                 ForEach(0..<7) {j in
-         */
         for i in (0..<6){
             for j in (0..<7){
                 gameBoard[i][j].valor = 0
@@ -55,5 +56,6 @@ struct gamePce{
     var valor = 0
     var show = true
     var name = ""
+    var color: Color = .gray
 }
 

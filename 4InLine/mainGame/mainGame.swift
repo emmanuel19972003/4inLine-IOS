@@ -53,17 +53,8 @@ struct Borad: View {
             ForEach(0..<6) {i in
                 HStack( spacing: 3){
                     ForEach(0..<7) {j in
-                        ZStack{
-                            if(tokens[i][j].valor == 0){
-                                Circle().foregroundColor(.gray)
-                            }else if (tokens[i][j].valor == 1){
-                                Circle().foregroundColor(.red)
-                            }else{
-                                Circle().foregroundColor(.yellow)
-                            }
-                            
-                            
-                        }
+                        Circle().foregroundColor(tokens[i][j].color)
+                    
                         
                         
                     }
